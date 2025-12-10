@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace P1NGMU
 {
@@ -12,13 +13,13 @@ namespace P1NGMU
         public void BtnManual()
         {
             MenualBack.GetComponent<Animator>().SetTrigger("Close");
-            Invoke("OpenMenual", 1.8f);
+            Invoke("OpenMenual", 2f);
         }
 
         public void BtnStory()
         {
             MenualBack.GetComponent<Animator>().SetTrigger("Close");
-            Invoke("OpenStory", 1.8f);
+            Invoke("OpenStory", 2f);
         }
 
         public void BtnBack(int num)
@@ -27,13 +28,23 @@ namespace P1NGMU
             {
                 case 0: //Menual
                     Menual.GetComponent<Animator>().SetTrigger("Close");
-                    Invoke("OpenMenuBack", 1.8f);
+                    Invoke("OpenMenuBack", 2f);
                     break;
                 case 1: //Story
                     Story.GetComponent<Animator>().SetTrigger("Close");
-                    Invoke("OpenMenuBack", 1.8f);
+                    Invoke("OpenMenuBack", 2f);
                     break;
             }
+        }
+
+        public void BtnStart()
+        {
+            SceneManager.LoadScene("stage01");
+        }
+
+        public void BtnExit()
+        {
+            Application.Quit();
         }
 
         void OpenMenual()
