@@ -12,13 +12,28 @@ namespace P1NGMU
         public void BtnManual()
         {
             MenualBack.GetComponent<Animator>().SetTrigger("Close");
-            Invoke("OpenMenual", 1.5f);
+            Invoke("OpenMenual", 1.8f);
         }
 
         public void BtnStory()
         {
-            MenualBack.GetComponent<Animator>().SetTrigger("Cloese");
-            Invoke("OpenStory", 1.5f);
+            MenualBack.GetComponent<Animator>().SetTrigger("Close");
+            Invoke("OpenStory", 1.8f);
+        }
+
+        public void BtnBack(int num)
+        {
+            switch (num)
+            {
+                case 0: //Menual
+                    Menual.GetComponent<Animator>().SetTrigger("Close");
+                    Invoke("OpenMenuBack", 1.8f);
+                    break;
+                case 1: //Story
+                    Story.GetComponent<Animator>().SetTrigger("Close");
+                    Invoke("OpenMenuBack", 1.8f);
+                    break;
+            }
         }
 
         void OpenMenual()
