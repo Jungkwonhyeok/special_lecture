@@ -16,6 +16,8 @@ namespace P1NGMU
         public float startWait;
         public float waveWait;
 
+        public float[] itemPer = new float[3];
+
         void Start()
         {
             StartCoroutine(SpawnEnemy());
@@ -36,6 +38,28 @@ namespace P1NGMU
 
                 }
                 yield return new WaitForSeconds(waveWait);
+            }
+        }
+
+        public int CreateItem()
+        {
+            int per = Random.Range(0, 100);
+
+            if(per > itemPer[2])
+            {
+                return -1;
+            }
+            else if(per > itemPer[1])
+            {
+                return 2;
+            }
+            else if(per > itemPer[0])
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
             }
         }
     }
