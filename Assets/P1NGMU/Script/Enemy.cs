@@ -7,6 +7,10 @@ namespace P1NGMU
 {
     public class Enemy : MonoBehaviour
     {
+        private GameManager gameManager;
+
+        public GameObject[] item;
+
         public float speed;
         public float ThrowPower = 50.0f;
         private GameObject Player;
@@ -19,6 +23,17 @@ namespace P1NGMU
 
         void Start()
         {
+            GameObject gameManagerObject = GameObject.FindGameObjectWithTag("GameManager");
+            if (gameManagerObject != null)
+            {
+                gameManager = gameManagerObject.GetComponent<GameManager>();
+            }
+
+            if (gameObject == null)
+            {
+                Debug.LogError("게임 매니저가 존재하지 않습니다.");
+            }
+
             Player = GameObject.FindGameObjectWithTag("Player");
 
             if(Player == null)
@@ -58,6 +73,11 @@ namespace P1NGMU
                 hp -= 1f;
                 if(hp < 1.0f)
                 {
+                    int itemNum = gameManager.CreateItem();
+                    if(!other.CompareTag("Player") && itemNum != -1)
+                    {
+                        Instantiate(item[itemNum], this.transform.position, item[itemNum].transform.rotation);
+                    }
                     Destroy(gameObject);
                 }
                 Destroy(other.gameObject);

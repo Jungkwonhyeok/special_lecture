@@ -47,6 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9087199e658b25b4eb1991d6c5af9c1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+  - {fileID: 1071780333423116355, guid: 469ee299a9307484e95776ab7c1e0df3, type: 3}
+  - {fileID: 1161437567361207513, guid: 821fa9893a595c447be778a08e682bad, type: 3}
+  - {fileID: 596043835745112299, guid: a5ad543a274085a45b88a7d92ab2f140, type: 3}
   speed: 5
   ThrowPower: 50
   objBullet: {fileID: 5401600347487837574, guid: 0fd3cb506bc1dfc4cb0d22de4127fb2b, type: 3}
