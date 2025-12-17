@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8298785416376223422}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2504826303277359785}
   - component: {fileID: 4288638239186969214}
-  - component: {fileID: 2254382475421905803}
+  - component: {fileID: 21908919171286225}
   m_Layer: 0
   m_Name: HP
   m_TagString: Item
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSpeed: -0.25
   itemStatus: 0
---- !u!135 &2254382475421905803
+--- !u!135 &21908919171286225
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8083001673384599653}
   - component: {fileID: 6921683488243656663}
-  - component: {fileID: 6664963585631176209}
+  - component: {fileID: 417878988862686885}
   m_Layer: 0
   m_Name: Upgrade
   m_TagString: Item
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSpeed: -0.25
   itemStatus: 1
---- !u!135 &6664963585631176209
+--- !u!135 &417878988862686885
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -80,10 +80,9 @@ GameObject:
   - component: {fileID: 3140476457839354249}
   - component: {fileID: 3684441444317189437}
   - component: {fileID: 9142945684544164692}
-  - component: {fileID: 2517861086269734159}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,24 +152,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2517861086269734159
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2950599291655046687}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

@@ -78,6 +78,7 @@ namespace P1NGMU
             {
                 hp -= 1f;
             }
+
             if (other.CompareTag("Item"))
             {
                 switch (other.GetComponent<Item>().itemStatus)
@@ -89,6 +90,8 @@ namespace P1NGMU
                     case ItemStatus.bomb:
                         break;
                 }
+
+                Destroy(other.gameObject);
             }
         }
     }
