@@ -2,6 +2,7 @@ using PlasticGui;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Codice.Client.Common.EventTracking.TrackFeatureUseEvent.Features.DesktopGUI.Filters;
 
 namespace P1NGMU
 {
@@ -84,6 +85,24 @@ namespace P1NGMU
             }
             else if (other.CompareTag("Player"))
             {
+                Destroy(gameObject);
+            }
+        }
+
+        public void OnHit()
+        {
+            if (CompareTag("Bullet"))
+            {
+                hp -= 1f;
+                if (hp < 1.0f)
+                {
+                    int itemNum = gameManager.CreateItem();
+                    if (CompareTag("Player") && itemNum != -1)
+                    {
+                        Instantiate(item[itemNum], this.transform.position, item[itemNum].transform.rotation);
+                    }
+                    Destroy(gameObject);
+                }
                 Destroy(gameObject);
             }
         }

@@ -19,6 +19,7 @@ namespace P1NGMU
         public Transform BulletPoint;
         public float hp  = GameDataManager.Instance.hp;
 
+        GameManager gameManager;
         void Update()
         {
             Move();
@@ -28,6 +29,17 @@ namespace P1NGMU
         void Start()
         {
             thisRigi = GetComponent<Rigidbody>();
+
+            GameObject gameManagerObject = GameObject.FindGameObjectWithTag("GameManager");
+            if (gameManagerObject != null)
+            {
+                gameManager = gameManagerObject.GetComponent<GameManager>();
+            }
+
+            if (gameObject == null)
+            {
+                Debug.LogError("게임 매니저가 존재하지 않습니다.");
+            }
         }
 
         public void Move()
@@ -68,6 +80,23 @@ namespace P1NGMU
                 if(GameDataManager.Instance.bomb == 0)
                 {
                     GameDataManager.Instance.isBomb = true;
+                }
+                else
+                {
+                    GameDataManager.Instance.bomb--;
+                    GameDataManager.Instance.bombing = 0;
+                    for(int i = 0; i < gameManager.listEnemys.Count; i++)
+                    {
+                        if (gameManager.listEnemys[i].GetComponent<Enemy>() != null)
+                        {
+                            gameManager.listEnemys[i].GetComponent<Enemy>().hp -= 1;
+                            if(gameManager.listEnemys [i].GetComponent<Enemy>().hp < 0)
+                            {
+                                Destroy(gameManager.listEnemys[i].gameObject);
+                                gameManager.listEnemys[i].GetComponent<Enemy>().OnHit();
+                            }
+                        }
+                    }
                 }
             }
         }

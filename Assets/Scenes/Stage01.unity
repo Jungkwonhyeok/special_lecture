@@ -487,7 +487,7 @@ MonoBehaviour:
   speed: 2
   objBullet: {fileID: 5401600347487837574, guid: 0fd3cb506bc1dfc4cb0d22de4127fb2b, type: 3}
   BulletPoint: {fileID: 410426940}
-  hp: 10
+  hp: 0
 --- !u!54 &886837280
 Rigidbody:
   m_ObjectHideFlags: 0
