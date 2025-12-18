@@ -17,7 +17,7 @@ namespace P1NGMU
         public GameObject objBullet;
         // 총알이 생성 될 위치
         public Transform BulletPoint;
-        public float hp;
+        public float hp  = GameDataManager.Instance.hp;
 
         void Update()
         {
@@ -62,6 +62,14 @@ namespace P1NGMU
                 GameObject bullet = Instantiate(objBullet, BulletPoint.position, this.transform.rotation);
                 bullet.GetComponent<Bullet>().SetBullet(BulletPoint.position + Vector3.forward);
             }
+
+            if (Input.GetButtonDown("Fire2") && (GameDataManager.Instance.bombTime <= GameDataManager.Instance.bombing))
+            {
+                if(GameDataManager.Instance.bomb == 0)
+                {
+                    GameDataManager.Instance.isBomb = true;
+                }
+            }
         }
         void OnTriggerEnter(Collider other)
         {
@@ -84,10 +92,22 @@ namespace P1NGMU
                 switch (other.GetComponent<Item>().itemStatus)
                 {
                     case ItemStatus.hp:
+                        if (GameDataManager.Instance.hp < GameDataManager.Instance.maxHp)
+                        {
+                            GameDataManager.Instance.hp ++;
+                        }
                         break;
                     case ItemStatus.upgrade:
+                        if(GameDataManager.Instance.upgrade < GameDataManager.Instance.maxUpgrade)
+                        {
+                            GameDataManager.Instance.upgrade ++;
+                        }
                         break;
                     case ItemStatus.bomb:
+                        if (GameDataManager.Instance.bomb < GameDataManager.Instance.maxBomb)
+                        {
+                            GameDataManager.Instance.bomb++;
+                        }
                         break;
                 }
 
